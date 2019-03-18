@@ -1,0 +1,63 @@
+.Dd March 18, 2019
+.Dt venv-do 1
+.Os
+.Sh NAME
+.Nm venv-do
+.Nd Execute a command in a one-off Python virtualenv
+.Sh SYNOPSIS
+.Nm
+.Ar command
+.Nm
+.Op Fl h | Fl -help
+.Sh DESCRIPTION
+The
+.Nm
+utility does for `virtualenv` roughly what `sudo` does for `su`. It creates a temporary Python environment, executes the supplied
+.Ar command
+in that environment, and then cleans up that environment at the end of the invocation.
+.Pp
+This is useful for commands that must reliably execute in a pristine Python environment each time.
+.Sh OPTIONS
+.Pp
+The
+.Nm
+utility understands the following command-line options:
+.Bl -tag -width indent
+.It Fl h, Fl -help
+Display the usage screen.
+.El
+.Sh EXAMPLES
+.Pp
+To run a single command:
+.Pp
+.Dl $ venv-do whoami
+.Dl joe
+.Pp
+To run a command with arguments:
+.Pp
+.Dl $ venv-do echo 'hello world'
+.Dl hello world
+.Pp
+To run a command that uses Python executables, the string should be quoted to avoid the shell expanding their path:
+.Pp
+.Dl $ venv-do 'pip install -q homebrew-pypi-poet example && poet -f example'
+.Sh ENVIRONMENT
+All standard Python environment variables that modify the Python PATH will affect:
+.Bl -bullet -compact
+.It
+The execution of
+.Sq virtualenv
+in
+.Nm
+itself.
+.It
+The execution of Python programs in the user-supplied
+.Ar command
+\&.
+.El
+.Sh EXIT STATUS
+.Ex -std
+.Sh STANDARDS
+The
+.Nm
+utility's virtualenv handling is expected to conform to the PEP-405 Python Virtual Environments standard at https://www.python.org/dev/peps/pep-0405/.

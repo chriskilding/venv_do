@@ -1,0 +1,50 @@
+#!/bin/sh
+
+set -o errexit
+set -o noclobber
+set -o noglob
+set -o nounset
+
+usage() {
+    program=$(basename "$0")
+    cat 1>&2 <<EOF
+Execute a command in a one-off Python virtualenv.
+
+Usage:
+  ${program} <command>
+  ${program} (-h | --help)
+
+Options:
+  -h --help  Show this screen.
+EOF
+    exit 1
+}
+
+run() {
+    command=$1
+
+    the_virtualenv=$(mktemp -d)
+    virtualenv --quiet "$the_virtualenv"
+    # Stop shellcheck complaining about the way virtualenv works (SC1090).
+    # shellcheck source=/dev/null
+    . "$the_virtualenv/bin/activate"
+    eval "$command"
+    deactivate
+    rm -rf "$the_virtualenv"
+}
+
+main() {
+    if [ "$#" -lt 1 ]; then
+        usage
+    fi
+
+    if [ "$1" = "-h" ]; then
+        usage
+    elif [ "$1" = "--help" ]; then
+        usage
+    fi
+
+    run "$*"
+}
+
+main "$@"
