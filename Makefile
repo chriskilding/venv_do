@@ -12,6 +12,7 @@ test:
 	bats test
 
 install:
+	mkdir -p $(DESTDIR)$(prefix)/bin $(DESTDIR)$(prefix)/share/man/man1
 	install venv-do $(DESTDIR)$(prefix)/bin
 	install venv-do.1 $(DESTDIR)$(prefix)/share/man/man1
 
