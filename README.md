@@ -19,7 +19,7 @@ This is useful for commands that must reliably execute in a pristine Python envi
 
 ## Usage
 
-    python -m venv_do <command>
+    python -m venv_do [options] <command>
 
 ## Options
 
@@ -50,9 +50,8 @@ To run a command that uses Python executables, the string should be quoted to av
 
 All standard Python environment variables that modify the Python PATH will affect:
 
-- The execution of `venv` in `venv-do` itself.
+- The execution of `venv` in `venv_do` itself.
 - The execution of Python programs in the user-supplied `<command>`.
-
 
 ## Exit Status
 
