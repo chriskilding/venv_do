@@ -1,14 +1,14 @@
 #!/usr/bin/env bats
 
-venv-do() {
-    ./venv-do "$@"
+venv_do() {
+    python -m venv_do "$@"
 }
 
 @test 'should do a command' {
-    run venv-do true
+    run venv_do true
     [[ "$status" -eq 0 ]]
 }
 
 @test 'should do a command with multiple arguments' {
-    [[ $(venv-do echo hello world) = "hello world" ]]
+    [[ $(venv_do 'echo hello world') = "hello world" ]]
 }

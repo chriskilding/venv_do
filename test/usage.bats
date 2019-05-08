@@ -1,15 +1,15 @@
 #!/usr/bin/env bats
 
-venv-do() {
-    ./venv-do "$@"
+venv_do() {
+    python -m venv_do "$@"
 }
 
 @test '-h should show the usage screen' {
-    run venv-do -h
-    [[ "$status" -eq 1 ]]
+    run venv_do -h
+    [[ "$status" -eq 0 ]]
 }
 
 @test '--help should show the usage screen' {
-    run venv-do --help
-    [[ "$status" -eq 1 ]]
+    run venv_do --help
+    [[ "$status" -eq 0 ]]
 }
