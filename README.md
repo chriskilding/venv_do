@@ -10,7 +10,7 @@ This is useful for commands that must reliably execute in a pristine Python envi
 
 ## Dependencies
 
-- [Python](https://www.python.org)
+- [Python](https://www.python.org) 3.3+
 - [Bats](https://github.com/bats-core/bats-core) (test)
 
 ## Install
