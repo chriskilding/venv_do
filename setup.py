@@ -11,11 +11,11 @@ with open('LICENSE') as f:
 
 setup(
     name='venv_do',
-    version='0.0.1',
+    version='0.0.3',
     description='Execute commands in a one-off Python virtualenv.',
     long_description=readme,
     author='Chris Kilding',
-    url='https://github.com/chriskilding/venv-do',
+    url='https://github.com/chriskilding/venv_do',
     license=license,
     packages=find_packages(exclude=('test', 'docs'))
 )

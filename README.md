@@ -1,5 +1,7 @@
 # venv_do
 
+[![Build Status](https://travis-ci.com/chriskilding/venv_do.svg?branch=master)](https://travis-ci.com/chriskilding/venv_do)
+
 Execute a command in a one-off Python virtualenv.
 
 ## Overview
@@ -23,7 +25,7 @@ This is useful for commands that must reliably execute in a pristine Python envi
 
 ## Options
 
-The `venv_do` module understands the following command-line options:
+The `venv_do` module understands the following options:
 
 - `-h, --help` Display the usage screen.
 - `--prompt PROMPT` Provides an alternative prompt prefix for this environment.
