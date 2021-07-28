@@ -1,7 +1,5 @@
 # venv_do
 
-[![Build Status](https://travis-ci.com/chriskilding/venv_do.svg?branch=master)](https://travis-ci.com/chriskilding/venv_do)
-
 Execute a command in a one-off Python virtualenv.
 
 ## Overview
